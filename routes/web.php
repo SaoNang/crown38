@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAthController;
 use App\Http\Controllers\ContactManager;
+use App\Http\Controllers\Pos;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,5 @@ Route::get('/manage-contact',[ContactManager::class,'ContactManagerIndex'])->mid
 Route::get('/manage-contact/{id}',[ContactManager::class,'ContactManagerGetId'])->middleware('isLoggedIn');
 Route::put('/contact-update',[ContactManager::class,'ContactUpdate'])->name('contact-update')->middleware('isLoggedIn');
 Route::put('/create-contact',[ContactManager::class,'CreateContact'])->name('create-contact')->middleware('isLoggedIn');
+
+Route::get('/pos',[Pos::class,'PosIndex']) ->middleware('isLoggedIn');
