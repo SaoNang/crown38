@@ -34,6 +34,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="plugins/dropzone/min/dropzone.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -78,9 +81,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
-
-
-
 <!-- Select2 -->
 <script src="plugins/select2/js/select2.full.min.js"></script>
 <!-- Bootstrap4 Duallistbox -->
@@ -98,14 +98,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- BS-Stepper -->
 <script src="plugins/bs-stepper/js/bs-stepper.min.js"></script>
-<!-- dropzonejs -->
-<script src="plugins/dropzone/min/dropzone.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+
+
+
 <!-- Page specific script -->
 <script>
+
+  $(function () {
+    // Summernote
+    $('#summernote').summernote()
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+
   $(function () {
     //Initialize Select2 Elements
     $('.select2').select2()
@@ -188,17 +197,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     $("input[data-bootstrap-switch]").each(function(){
       $(this).bootstrapSwitch('state', $(this).prop('checked'));
     })
-
   })
-
- 
-</script>
-
-
-<!-- Page specific script -->
-
-
-<script>
+  
+  // data table
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": true, "autoWidth": false,

@@ -51,6 +51,22 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="pos" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Sales
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="product" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Products
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

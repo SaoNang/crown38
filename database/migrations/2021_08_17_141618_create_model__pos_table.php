@@ -13,9 +13,9 @@ class CreateModelPosTable extends Migration
      */
     public function up()
     {
-        Schema::create('model__pos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('pos', function (Blueprint $table) {
+            // $table->id();
+            // $table->timestamps();
         });
     }
 
@@ -26,6 +26,6 @@ class CreateModelPosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('model__pos');
+        Schema::dropIfExists('pos');
     }
 }

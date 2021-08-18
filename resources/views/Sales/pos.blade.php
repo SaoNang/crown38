@@ -12,31 +12,20 @@ opacity: 0;
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
 <!-- CSRF Token -->
 <meta name="csrf-token" content="BHMcWVietLKrR8D5fXdKfChaF4FgLmiH7vGNh2uA">
-
 <title>PLB POS</title>
 <!-- summernote -->
 <link rel="stylesheet" href="https://pos.eocambo.com/summernote/summernote-bs4.min.css">
-
-<link rel="stylesheet" href="https://pos.eocambo.com/css/vendor.css?v=6">
-
-
-
+<link rel="stylesheet" href="dist/css/vendor.css">
 <!-- app css -->
-<link rel="stylesheet" href="https://pos.eocambo.com/css/app.css?v=6">
-
+<link rel="stylesheet" href="dist/css/app.css">
 <style type="text/css">
 .content {
 padding-bottom: 0px !important;
 }
-
 </style>
-
-
 </head>
-
 <body class=" hold-transition lockscreen ">
 <div id="app"></div>
 <div class="wrapper thetop">
@@ -47,12 +36,10 @@ body.className += " sidebar-collapse";
 }
 </script>
 <!-- default value -->
-
 <input type="hidden" name="transaction_sub_type" id="transaction_sub_type" value="">
 <div class="col-md-12 no-print pos-header">
 <input type="hidden" id="pos_redirect_url" value="https://pos.eocambo.com/pos/create">
 <div class="row header_add_color">
-
 <div class="col-12 col-sm-12 col-xs-12 col-md-6">
 <span class="logo">
 	PLB
@@ -60,84 +47,58 @@ body.className += " sidebar-collapse";
 </span>
 &nbsp;
 <button class="btn-alert_draff">
-
-
-
 </button>
-
 </div>
 <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-xl-6 ul-right">
-<div class="row">
-	<div class="col-6 col-xs-8 col-sm-8 col-md-8 col-xl-10">
-		<div class="search-btn">
-
-
-			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-btn">
-						<button type="button" class="barcode  btn btn-default bg-white btn-flat"
-							data-toggle="modal" data-target="#configure_search_modal"
-							title="Configure product search"><i class="fa fa-barcode"></i></button>
+	<div class="row">
+		<div class="col-6 col-xs-8 col-sm-8 col-md-8 col-xl-10">
+			<div class="search-btn">
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="barcode  btn btn-default bg-white btn-flat"
+								data-toggle="modal" data-target="#configure_search_modal"
+								title="Configure product search"><i class="fa fa-barcode"></i></button>
+						</div>
+						<input class="form-control" id="search_product"
+							placeholder="Enter Product name / SKU / Scan bar code" autofocus
+							name="search_product" type="text">
+						<span class="input-group-btn">
+							<button type="button"
+								class="btn btn-default bg-white btn-flat pos_add_quick_product"
+								data-href="https://pos.eocambo.com/products/quick_add"
+								data-container=".quick_add_product_modal"><i
+									class="fa fa-plus-circle text-primary fa-lg"></i></button>
+						</span>
 					</div>
-
-					<input class="form-control" id="search_product"
-						placeholder="Enter Product name / SKU / Scan bar code" autofocus
-						name="search_product" type="text">
-
-					<span class="input-group-btn">
-						<button type="button"
-							class="btn btn-default bg-white btn-flat pos_add_quick_product"
-							data-href="https://pos.eocambo.com/products/quick_add"
-							data-container=".quick_add_product_modal"><i
-								class="fa fa-plus-circle text-primary fa-lg"></i></button>
-					</span>
 				</div>
 			</div>
-
-
-
-
-
 		</div>
-	</div>
-	<div class="col-md-2 col-xl-2">
-		<div class="h-btn-max">
-			<button type="button" title="Press F11 to go Full Screen"
-				class="btn btn-primary btn-flat m-6 hidden-xs btn-xs m-5 pull-right"
-				id="full_screen">
-				<i class="fa fa-expand fa-lg"></i>
-			</button>
-		</div>
-	</div>
-
-
-	<div class="col-3 col-xs-2 col-sm-2 col-md-2 col-xl-2">
-		<div class="h-btn-back">
-			<a href="https://pos.eocambo.com/pos" title="Go Back"
-				class="btn btn-back btn-flat m-6 btn-xs m-5 pull-right">
-				<button>
-					<i class="fas fa-arrow-circle-left"></i>
+		<div class="col-md-2 col-xl-2">
+			<div class="h-btn-max">
+				<button type="button" title="Press F11 to go Full Screen"
+					class="btn btn-primary btn-flat m-6 hidden-xs btn-xs m-5 pull-right"
+					id="full_screen">
+					<i class="fa fa-expand fa-lg"></i>
 				</button>
-			</a>
+			</div>
+		</div>
+		<div class="col-3 col-xs-2 col-sm-2 col-md-2 col-xl-2">
+			<div class="h-btn-back">
+				<a href="dashboard" title="Go Back"
+					class="btn btn-back btn-flat m-6 btn-xs m-5 pull-right">
+					<button>
+						<i class="fas fa-arrow-circle-left"></i>
+					</button>
+				</a>
+			</div>
 		</div>
 	</div>
-
-</div>
-
-
-
-
 </div>
 </div>
 </div>
-
-
-
-
-
 <!-- Content Wrapper. Contains page content -->
 <div class="">
-
 <!-- Add currency related field-->
 <input type="hidden" id="__code" value="USD">
 <input type="hidden" id="__symbol" value="$">
@@ -147,8 +108,6 @@ body.className += " sidebar-collapse";
 <input type="hidden" id="__precision" value="2">
 <input type="hidden" id="__quantity_precision" value="2">
 <!-- End of currency related field-->
-
-
 <section class="content no-print">
 <input type="hidden" id="amount_rounding_method" value="">
 <form method="POST" action="https://pos.eocambo.com/pos" accept-charset="UTF-8" id="add_pos_sell_form">
@@ -170,7 +129,6 @@ body.className += " sidebar-collapse";
 							.h-price-group .form-group .input-group {
 								left: 0px;
 							}
-
 							.sidenav {
 								height: 100%;
 								width: 0;
@@ -347,10 +305,7 @@ body.className += " sidebar-collapse";
 								<!-- Show button for weighing scale modal -->
 							</div>
 						</div>
-
 						<!-- include module fields -->
-
-
 						<div class="row">
 							<div class="col-sm-12 pos_product_div">
 								<input type="hidden" name="sell_price_tax" id="sell_price_tax"
@@ -389,7 +344,6 @@ body.className += " sidebar-collapse";
 							function openNav() {
 								document.getElementById("mySidenav").style.width = "270px";
 							}
-
 							function closeNav() {
 								document.getElementById("mySidenav").style.width = "0";
 							}
@@ -455,7 +409,6 @@ data-content="Set 'Default Sale Tax' for all sales in Business Settings. Click o
 												data-default="">
 										</td>
 									</tr>
-
 									<tr class="">
 										<span>
 											<!-- <b>Shipping(+): <i class="fa fa-info-circle text-info hover-q no-print " aria-hidden="true" 
@@ -465,7 +418,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 												<b>Shipping:</b>
 											</td>
 											<td class="td-val">
-
 												<span id="shipping_charges_amount">0</span>
 												<input type="hidden" name="shipping_details"
 													id="shipping_details" value="" data-default="">
@@ -485,9 +437,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 											</td>
 										</span>
 									</tr>
-
-
-
 									<tr>
 										<td id="td-packing">
 											Packing Charge(+):
@@ -512,8 +461,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 								</table>
 							</div>
 						</div>
-
-
 						<div class="modal fade" tabindex="-1" role="dialog" id="modal_payment">
 							<div class="modal-dialog modal-lg" role="document">
 								<div class="modal-content">
@@ -528,13 +475,9 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 											<div class="col-md-9">
 												<div class="row">
 													<div id="payment_rows_div">
-
-
 														<div class="col-md-12">
 															<div class="box box-solid payment_row"
 																style="background: #0073b724; border: 4px solid #0073b7;">
-
-
 																<div class="box-body">
 																	<div class="row">
 																		<input type="hidden"
@@ -570,85 +513,37 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 																		</div>
 																		<div class="col-md-6">
 																			<div class="form-group">
-																				<label
-																					for="amount_0">Receive
-																					Amount (Dolla
-																					$):*</label>
+																				<label for="amount_0">Receive Amount (Dolla $):*</label>
 																				<div
 																					class="input-group">
-																					<span
-																						class="input-group-addon">
-																						<i
-																							class="fa fa-money"></i>
+																					<span class="input-group-addon">
+																						<i class="fa fa-money"></i>
 																					</span>
-																					<input
-																						class="form-control payment-amount input_number"
-																						required
-																						id="amount_0"
-																						placeholder="Amount"
-																						name="payment[0][amount]"
-																						type="text"
-																						value="0.00">
+																					<input class="form-control payment-amount input_number" required id="amount_0" placeholder="Amount" name="payment[0][amount]" type="text" value="0.00">
 																				</div>
 																			</div>
 																		</div>
 																		<div class="col-md-6">
 																			<div class="form-group">
-																				<label
-																					for="method_0">Payment
-																					Method:*</label>
-																				<div
-																					class="input-group">
-																					<span
-																						class="input-group-addon">
-																						<i
-																							class="fa fa-money"></i>
+																				<label for="method_0">Payment Method:*</label>
+																				<div class="input-group">
+																					<span class="input-group-addon">
+																						<i class="fa fa-money"></i>
 																					</span>
-																					<select
-																						class="form-control col-md-12 payment_types_dropdown"
-																						required
-																						id="method_0"
-																						style="width:100%;"
-																						name="payment[0][method]">
-																						<option
-																							value="cash"
-																							selected="selected">
-																							Cash
+																					<select class="form-control col-md-12 payment_types_dropdown" required id="method_0" style="width:100%;" name="payment[0][method]">
+																						<option value="cash" selected="selected"> Cash
 																						</option>
-																						<option
-																							value="card">
-																							Card
+																						<option	value="card"> Card </option>
+																						<option value="cheque"> Cheque
 																						</option>
-																						<option
-																							value="cheque">
-																							Cheque
+																						<option value="bank_transfer"> Bank Transfer
 																						</option>
-																						<option
-																							value="bank_transfer">
-																							Bank
-																							Transfer
+																						<option value="other"> Other </option>
+																						<option value="custom_pay_1"> Custom Payment 1
 																						</option>
-																						<option
-																							value="other">
-																							Other
+																						<option value="custom_pay_2"> Custom Payment 2
 																						</option>
-																						<option
-																							value="custom_pay_1">
-																							Custom
-																							Payment
-																							1
-																						</option>
-																						<option
-																							value="custom_pay_2">
-																							Custom
-																							Payment
-																							2
-																						</option>
-																						<option
-																							value="custom_pay_3">
-																							Custom
-																							Payment
-																							3
+																						<option value="custom_pay_3"> Custom Payment 3
 																						</option>
 																					</select>
 																				</div>
@@ -658,50 +553,22 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 																		<div class="payment_details_div  hide "
 																			data-type="card">
 																			<div class="col-md-4">
-																				<div
-																					class="form-group">
-																					<label
-																						for="card_number_0">Card
+																				<div class="form-group">
+																					<label for="card_number_0">Card
 																						Number</label>
-																					<input
-																						class="form-control"
-																						placeholder="Card Number"
-																						id="card_number_0"
-																						name="payment[0][card_number]"
-																						type="text"
-																						value="">
+																					<input class="form-control" placeholder="Card Number" id="card_number_0" name="payment[0] [card_number]" type="text" value="">
 																				</div>
 																			</div>
 																			<div class="col-md-4">
-																				<div
-																					class="form-group">
-																					<label
-																						for="card_holder_name_0">Card
-																						holder
-																						name</label>
-																					<input
-																						class="form-control"
-																						placeholder="Card holder name"
-																						id="card_holder_name_0"
-																						name="payment[0][card_holder_name]"
-																						type="text"
-																						value="">
+																				<div class="form-group">
+																					<label for="card_holder_name_0">Card holder name</label>
+																					<input class="form-control" placeholder="Card holder name" id="card_holder_name_0" name="payment[0][card_holder_name]" type="text" value="">
 																				</div>
 																			</div>
 																			<div class="col-md-4">
-																				<div
-																					class="form-group">
-																					<label
-																						for="card_transaction_number_0">Card
-																						Transaction
-																						No.</label>
-																					<input
-																						class="form-control"
-																						placeholder="Card Transaction No."
-																						id="card_transaction_number_0"
-																						name="payment[0][card_transaction_number]"
-																						type="text"
-																						value="">
+																				<div class="form-group">
+																					<label for="card_transaction_number_0">Card Transaction No.</label>
+																					<input class="form-control" placeholder="Card Transaction No." id="card_transaction_number_0" name="payment[0] [card_transaction_number]" type="text" value="">
 																				</div>
 																			</div>
 																			<div class="clearfix">
@@ -710,29 +577,18 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 																				class="col-md-3 hide">
 																				<div
 																					class="form-group">
-																					<label
-																						for="card_type_0">Card
-																						Type</label>
-																					<select
-																						class="form-control"
-																						id="card_type_0"
-																						name="payment[0][card_type]">
-																						<option
-																							value="credit">
-																							Credit
-																							Card
+																					<label for="card_type_0">Card Type</label>
+																					<select class="form-control" id="card_type_0" name="payment[0][card_type]">
+																						<option value="credit">
+																							Credit Card
 																						</option>
-																						<option
-																							value="debit">
-																							Debit
-																							Card
+																						<option value="debit">
+																							Debit Card
 																						</option>
-																						<option
-																							value="visa">
+																						<option value="visa">
 																							Visa
 																						</option>
-																						<option
-																							value="master">
+																						<option value="master">
 																							MasterCard
 																						</option>
 																					</select>
@@ -742,66 +598,33 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 																				class="col-md-3 hide">
 																				<div
 																					class="form-group">
-																					<label
-																						for="card_month_0">Month</label>
-																					<input
-																						class="form-control"
-																						placeholder="Month"
-																						id="card_month_0"
-																						name="payment[0][card_month]"
-																						type="text"
-																						value="">
+																					<label for="card_month_0">Month</label>
+																					<input class="form-control" placeholder="Month" id="card_month_0" name="payment[0] [card_month]" type="text" value="">
 																				</div>
 																			</div>
 																			<div
 																				class="col-md-3 hide">
-																				<div
-																					class="form-group">
-																					<label
-																						for="card_year_0">Year</label>
-																					<input
-																						class="form-control"
-																						placeholder="Year"
-																						id="card_year_0"
-																						name="payment[0][card_year]"
-																						type="text"
-																						value="">
+																				<div class="form-group">
+																					<label for="card_year_0">Year</ label>
+																					<input class="form-control" placeholder="Year" id="card_year_0" name="payment[0][card_year]" type="text" value="">
 																				</div>
 																			</div>
-																			<div
-																				class="col-md-3 hide">
-																				<div
-																					class="form-group">
-																					<label
-																						for="card_security_0">Security
-																						Code</label>
-																					<input
-																						class="form-control"
-																						placeholder="Security Code"
-																						id="card_security_0"
-																						name="payment[0][card_security]"
-																						type="text"
-																						value="">
+																			<div class="col-md-3 hide">
+																				<div class="form-group">
+																					<label  for="card_security_0">Security Code</label>
+																					<input class="form-control" placeholder="Security Code" id="card_security_0" name="payment[0][card_security]" type="text" value="">
 																				</div>
 																			</div>
 																			<div class="clearfix">
 																			</div>
 																		</div>
-																		<div class="payment_details_div  hide "
-																			data-type="cheque">
+																		<div class="payment_details_div  hide " data-type="cheque">
 																			<div class="col-md-12">
-																				<div
-																					class="form-group">
-																					<label
-																						for="cheque_number_0">Cheque
+																				<div class="form-group">
+																					<label for="cheque_number_0">Cheque
 																						No.</label>
-																					<input
-																						class="form-control"
-																						placeholder="Cheque No."
-																						id="cheque_number_0"
-																						name="payment[0][cheque_number]"
-																						type="text"
-																						value="">
+																					<input class="form-control"
+																						placeholder="Cheque No." id="cheque_number_0" name="payment[0][cheque_number]" type="text" value="">
 																				</div>
 																			</div>
 																		</div>
@@ -810,71 +633,40 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 																			<div class="col-md-12">
 																				<div
 																					class="form-group">
-																					<label
-																						for="bank_account_number_0">Bank
-																						Account
-																						No</label>
-																					<input
-																						class="form-control"
+																					<label for="bank_account_number_0">Bank
+																						Account No</label>
+																					<input class="form-control"
 																						placeholder="Bank Account No"
 																						id="bank_account_number_0"
-																						name="payment[0][bank_account_number]"
-																						type="text"
-																						value="">
+																						name="payment[0] [bank_account_number]"
+																						type="text"  value="">
 																				</div>
 																			</div>
 																		</div>
 																		<div class="payment_details_div  hide "
 																			data-type="custom_pay_1">
 																			<div class="col-md-12">
-																				<div
-																					class="form-group">
-																					<label
-																						for="transaction_no_1_0">Transaction
-																						No.</label>
-																					<input
-																						class="form-control"
-																						placeholder="Transaction No."
-																						id="transaction_no_1_0"
-																						name="payment[0][transaction_no_1]"
-																						type="text"
-																						value="">
+																				<div class="form-group">
+																					<label for="transaction_no_1_0">Transaction No.</label>
+																					<input class="form-control"
+																						placeholder="Transaction No." id="transaction_no_1_0" name="payment[0] [transaction_no_1]" type="text" value="">
 																				</div>
 																			</div>
 																		</div>
-																		<div class="payment_details_div  hide "
-																			data-type="custom_pay_2">
+																		<div class="payment_details_div hide " 	data-type="custom_pay_2"> 
 																			<div class="col-md-12">
-																				<div
-																					class="form-group">
-																					<label
-																						for="transaction_no_2_0">Transaction
-																						No.</label>
-																					<input
-																						class="form-control"
-																						placeholder="Transaction No."
-																						id="transaction_no_2_0"
-																						name="payment[0][transaction_no_2]"
-																						type="text"
-																						value="">
+																				<div class="form-group">
+																					<label for="transaction_no_2_0">Transaction No.</label>
+																					<input class="form-control" placeholder="Transaction No." id="transaction_no_2_0" name="payment[0][transaction_no_2]" type="text" value="">
 																				</div>
 																			</div>
 																		</div>
-																		<div class="payment_details_div  hide "
-																			data-type="custom_pay_3">
+																		<div class="payment_details_div hide " data-type="custom_pay_3">
 																			<div class="col-md-12">
-																				<div
-																					class="form-group">
-																					<label
-																						for="transaction_no_3_0">Transaction
-																						No.</label>
-																					<input
-																						class="form-control"
-																						placeholder="Transaction No."
-																						id="transaction_no_3_0"
-																						name="payment[0][transaction_no_3]"
-																						type="text"
-																						value="">
+																				<div class="form-group">
+																					<label for="transaction_no_3_0">Transaction No.</label>
+																					<input class="form-control"
+																						placeholder="Transaction No." id="transaction_no_3_0" name="payment[0] [transaction_no_3]" type="text" value="">
 																				</div>
 																			</div>
 																		</div>
@@ -899,8 +691,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 																					id="calc">
 																					<div
 																						class="calcBG col-md-12 text-center">
-
-
 																						<div
 																							class="row">
 																							<button
@@ -1018,8 +808,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 																								type="button"
 																								class="btn"
 																								onclick="mult_calEnterVal(this.id)">5000</button>
-
-
 																						</div>
 																						<div
 																							class="row">
@@ -1752,15 +1540,7 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 								</div>
 							</button>
 						</div>
-
-
-
-
-
 					</div>
-
-
-
 					<!-- used in repair : filter for service/product -->
 					<div class="col-md-6 hide" id="product_service_div">
 						<select id="is_enabled_stock" class="select2" name="is_enabled_stock"
@@ -1770,21 +1550,33 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 							<option value="service">Service</option>
 						</select>
 					</div>
-
-
 				</div>
 				<br>
 
 				<div class="row">
-
 					<input type="hidden" id="suggestion_page" value="1">
 					<div class="col-md-12">
-						<div class="eq-height-row" id="product_list_body"></div>
+						<div class="eq-height-row" id="product_list_body">
+							@foreach ($product_list as $product)
+							<div class="col-12 col-xs-12 col-sm-12 col-md-4  product_list no-print">
+								<div class="product_box" data-variation_id="968" title="Bacchus - Normal  (0725-1)">
+									<ul>
+										<li class="li-image"> <img class="product_image" src="{{$product->product_image}}" onerror="this.src='https://pos.eocambo.com/uploads/no-image.png'">
+										</li>
+										<li>
+											<div class="text_div">
+												<small class="text text-muted" style="font-size:13px;">{{$product->product_name }}</small>	
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							@endforeach
+							
+						</div>
 					</div>
-					<div class="col-md-12 text-center" id="suggestion_page_loader"
-						style="display: none;">
+					<div class="col-md-12 text-center" id="suggestion_page_loader" style="display: none;">
 						<i class="fa fa-spinner fa-spin fa-2x"></i>
-
 					</div>
 				</div> <!-- default value -->
 
@@ -1893,12 +1685,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 										<br>
 										QUOTATION
 									</button>
-
-
-
-
-
-
 									<button type="button"
 										class="btn btn-danger h-btn-action btn-flat  "
 										id="pos-cancel">
@@ -1906,7 +1692,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 										<span>
 											Cancel</button>
 									</span>
-
 									<button type="button" id="register_details" title="View Regis."
 										class="btn   h-btn-action  btn-flat btn-success btn-modal"
 										data-container=".register_details_modal"
@@ -2072,7 +1857,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 										</ul>
 									</div>
 								</div>
-
 								<br>
 								<div class="row  hide ">
 									<div class="well well-sm bg-light-gray col-md-12">
@@ -2119,12 +1903,10 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 					ul.wr-list-discount {
 						padding: 0px;
 					}
-
 					ul.wr-list-discount li {
 						float: left;
 						margin-right: 10px;
 					}
-
 				</style>
 				<!-- Edit Order tax Modal -->
 				<div class="modal fade" tabindex="-1" role="dialog" id="posEditOrderTaxModal">
@@ -2189,7 +1971,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 												id="shipping_details_modal"></textarea>
 										</div>
 									</div>
-
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="shipping_address_modal">Shipping
@@ -2200,7 +1981,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 												id="shipping_address_modal"></textarea>
 										</div>
 									</div>
-
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="shipping_charges_modal">Shipping
@@ -2216,7 +1996,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 											</div>
 										</div>
 									</div>
-
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="shipping_status_modal">Shipping
@@ -2233,7 +2012,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 											</select>
 										</div>
 									</div>
-
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="delivered_to_modal">Delivered To:</label>
@@ -2242,7 +2020,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 												id="delivered_to_modal">
 										</div>
 									</div>
-
 								</div>
 							</div>
 							<div class="modal-footer">
@@ -2260,7 +2037,6 @@ data-content="Set shipping details and shipping charges. Click on the edit icon 
 						.pos-form-actions {
 							margin-left: 3px;
 						}
-
 						.pos-form-actions button {
 							min-width: 9.5%;
 							height: 40px;
@@ -2423,11 +2199,8 @@ border-radius: 5px !important;
 		</div>
 		<div class="add-slide">
 			<p class="marquee">
-				<span>Power by: eOcambo Technololgy | Phone: 077 99 1005 | Email:
-					support@eocambo.com | Website: eocambo.com | Our Products: E-Commerce Platform
-					(E-commerce Website, E-commerce Mobile application, Extranet (Backend), Domain &
-					Hosting, EOCAMBO PAY, Scanning comment on Facebook Live, AI - Artificial
-					Intelligence)</span>
+				<span>Power by: Team Black Panther | Phone: 090 49 39 90 | Email:
+					teamblackpanther@email.com | Website: teamblackpanther.com | Our Products: POS Black Panther</span>
 			</p>
 		</div>
 	</div>
@@ -2959,7 +2732,7 @@ aria-labelledby="modalTitle">
 
 </div>
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
 base_path = "https://pos.eocambo.com";
 //used for push notification
 APP = {};
@@ -2968,7 +2741,7 @@ APP.PUSHER_APP_CLUSTER = '';
 //variable from app service provider
 APP.PUSHER_ENABLED = '';
 APP.USER_ID = "28";
-</script>
+</script> --}}
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js?v=$asset_v"></script>
@@ -3231,7 +3004,9 @@ $('#clock_in_clock_out_form').find('button[type="submit"]').removeAttr('disabled
 },
 });
 });
-</script> <div class="modal fade view_modal" tabindex="-1" role="dialog"
+</script> 
+
+<div class="modal fade view_modal" tabindex="-1" role="dialog"
 aria-labelledby="gridSystemModalLabel"></div>
 </body>
 

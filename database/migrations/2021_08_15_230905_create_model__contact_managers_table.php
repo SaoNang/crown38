@@ -13,7 +13,7 @@ class CreateModelContactManagersTable extends Migration
      */
     public function up()
     {
-        Schema::create('model__contact_managers', function (Blueprint $table) {
+        Schema::create('contact_managers', function (Blueprint $table) {
             $table->id();
             $table->string('account_name');
             $table->string('acc_password');
@@ -32,6 +32,6 @@ class CreateModelContactManagersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('model__contact_managers');
+        Schema::dropIfExists('contact_managers');
     }
 }
