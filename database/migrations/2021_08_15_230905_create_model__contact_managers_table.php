@@ -13,7 +13,7 @@ class CreateModelContactManagersTable extends Migration
      */
     public function up()
     {
-        Schema::create('contact_managers', function (Blueprint $table) {
+        Schema::create('model_contact_managers', function (Blueprint $table) {
             $table->id();
             $table->string('account_name');
             $table->string('acc_password');

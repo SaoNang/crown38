@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAthController;
 use App\Http\Controllers\ContactManager;
 use App\Http\Controllers\Pos;
-use App\Http\Controllers\Product;
+use App\Http\Controllers\Product_controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,4 +40,5 @@ Route::put('/create-contact',[ContactManager::class,'CreateContact'])->name('cre
 
 Route::get('/pos',[Pos::class,'PosIndex']) ->middleware('isLoggedIn');
 
-Route::get('/product',[Product::class,'Index']) ->middleware('isLoggedIn');
+Route::get('/product',[Product_controller::class,'Index']) ->middleware('isLoggedIn');
+Route::put('/create-product',[Product_controller::class,'Create'])->name('create-product')->middleware('isLoggedIn');

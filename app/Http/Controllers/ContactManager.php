@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class ContactManager extends Controller
 {
     public function ContactManagerIndex(){
-        $get_contact = DB::table('model__contact_managers')->get();
+        $get_contact = DB::table('model_contact_managers')->get();
         return view('ContactManager',compact('get_contact'));
     }
     
@@ -60,7 +60,6 @@ class ContactManager extends Controller
         $contact->account_id=$request->account_id;
         $contact->acc_create_date=$request->acc_create_date;
         $contact->save();
-      
         return response()->json($contact);
     }
    

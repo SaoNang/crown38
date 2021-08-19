@@ -36,6 +36,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/fileinput/fileinput.min.css">
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -98,6 +100,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- BS-Stepper -->
 <script src="plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- Choose product iamge -->
+<script src="plugins/fileinput/fileinput.min.js"></script>
 
 
 
@@ -105,20 +109,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script>
 
   $(function () {
-    // Summernote
-    $('#summernote').summernote()
-
-    // CodeMirror
-    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-      mode: "htmlmixed",
-      theme: "monokai"
-    });
-  })
-
-  $(function () {
     //Initialize Select2 Elements
     $('.select2').select2()
-
+    $(".select_group").select2();
     //Initialize Select2 Elements
     $('.select2bs4').select2({
       theme: 'bootstrap4'
@@ -216,6 +209,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
       "responsive": true,
     });
   });
+
+  var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' + 
+        'onclick="alert(\'Insert Product Image\')">' +
+        '<i class="fas fa-tag"></i>' +
+        '</button>'; 
+    $("#image").fileinput({
+        overwriteInitial: true,
+        maxFileSize: 1500,
+        showClose: false,
+        showCaption: false,
+        browseLabel: '',
+        removeLabel: '',
+        browseIcon: '<i class="fas fa-image"></i>',
+        removeIcon: '<i class="far fa-trash-alt"></i>',
+        removeTitle: 'Cancel or reset changes',
+        elErrorContainer: '#kv-avatar-errors-1',
+        msgErrorClass: 'alert alert-block alert-danger',
+        // defaultPreviewContent: '<img src="/uploads/default_avatar_male.jpg" alt="Your Avatar">',
+        layoutTemplates: {main2: '{preview} ' +  btnCust + ' {remove} {browse}'},
+        allowedFileExtensions: ["jpg", "png", "gif"]
+    });
 
 </script>
 </body>
