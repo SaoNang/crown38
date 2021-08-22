@@ -5,6 +5,8 @@ use App\Http\Controllers\CustomAthController;
 use App\Http\Controllers\ContactManager;
 use App\Http\Controllers\Pos;
 use App\Http\Controllers\Product_controller;
+use App\Http\Controllers\FileUpload;
+use App\Http\Controllers\FileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +44,12 @@ Route::get('/pos',[Pos::class,'PosIndex']) ->middleware('isLoggedIn');
 
 Route::get('/product',[Product_controller::class,'Index']) ->middleware('isLoggedIn');
 Route::put('/create-product',[Product_controller::class,'Create'])->name('create-product')->middleware('isLoggedIn');
+
+
+Route::get('/upload-file', [FileUpload::class, 'createForm']);
+
+Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
+
+Route::get('file', [FileController::class,'index']);
+Route::post('store-file', [FileController::class,'store']);
+

@@ -198,7 +198,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="productSaveForm">
+        <form id="productSaveForm" enctype="multipart/form-data">
           @csrf 
           <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">

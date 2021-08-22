@@ -19,6 +19,8 @@ class Product_controller extends Controller
         ],[
             'name.required'=>'Please fill in product name'
         ]);
+
+
         $product = new Product();
         $product->name=$request->name;
         $product->sku=$request->sku;
@@ -33,6 +35,8 @@ class Product_controller extends Controller
         $product->save();
         return response()->json($product);
     }
+
+   
     
     // public function ContactManagerGetId($id){
     //     $ContactManager = Model_ContactManager::find($id);

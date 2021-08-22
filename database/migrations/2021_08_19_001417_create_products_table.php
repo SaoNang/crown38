@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('price');
             $table->string('qty');
             $table->string('image');
+            $table->string('file_path')->nullable();
             $table->string('description');
             $table->string('category_id');
             $table->string('store_id');
